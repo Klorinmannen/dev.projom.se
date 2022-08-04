@@ -1,7 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace split\fuel\api;
+namespace common\dice\api;
 
 class model
 {
+
 }

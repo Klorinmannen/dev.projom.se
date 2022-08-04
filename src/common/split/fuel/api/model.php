@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
-namespace dice\api;
+namespace common\split\fuel\api;
 
 class model
 {
-
 }

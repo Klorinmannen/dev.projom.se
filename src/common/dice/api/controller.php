@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace dice\api;
+namespace common\dice\api;
 
 class controller extends \api\resource\controller
 {
