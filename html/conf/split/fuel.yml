@@ -1,0 +1,43 @@
+components:
+  schemas:
+    CostResponse:
+      type: object
+      properties:
+        cost_per_traveler: string
+      example:
+        cost_per_traveler: 181.84 per traveler
+    CostData:
+      type: object
+      properties:
+        distance_km: int
+        fuel_cost: float
+        traveler_count: int
+        vehicle_consumption: float
+      example:
+        distance_km: 200
+        fuel_cost: 22.73
+        traveler_count: 2
+        vehicle_consumption_100km: 8
+
+cost:
+  post:
+    operationId: per_traveler
+    summary: Split fuel cost among travelers
+    tags:
+      - Common
+    security:
+      - bearerAuth: []
+    requestBody:
+      description: Dataset needed for calculating the cost
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CostData"
+    responses:
+      '200':
+        description: A json object containing the cost per traveler
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostResponse'

@@ -1,0 +1,61 @@
+<div class="full_screen_div">
+  <div class="grid_center">
+    <header>
+      <div>
+	<h2 class="header no_margin">Signup</h2>
+      </div>
+    </header>
+
+    <section>
+      <div class="login_box">
+	<form method="post" class="no_margin">
+
+	  <div class="box_padding_top">
+	    <div>
+	      <label class="label" for="email-input">Username</label>
+	    </div>
+	    <div class="label_padding">
+	      <input class="input" name="username" type="text" id="username-input" required/>
+	    </div>
+	  </div>
+
+	  <div class="box_padding_top">
+	    <div>
+	      <label class="label" for="email-input">Email</label>
+	    </div>
+	    <div class="label_padding">
+	      <input class="input" name="email" type="email" id="email-input" autocomplete="current-email" required/>
+	    </div>
+	  </div>
+
+	  <div id="password-section" class="box_padding_top">
+	    <div class="grid_buttons">
+	      <div>
+		<label class="label" for="password-input">Password</label>
+	      </div>
+	      <div class="text_right">
+		<input onclick="set_password(this)" type="button" class="material_icons icon_input no_border" value="visibility_off" />
+	      </div>
+	    </div>
+
+	    <div class="label_padding">
+	      <input class="input" name="password" type="password" id="password-input" autocomplete="new-password" required/>
+	    </div>
+	    <div class="box_padding_top">
+	      <label class="label" for="password-input">Confirm password</label>
+	    </div>
+	    <div class="label_padding">
+	      <input class="input" name="password" type="password" id="password-confirm" autocomplete="new-password" required/>
+	    </div>
+	  </div>
+
+	  <div class="text_center box_padding_top">
+	    <button id="signup-submit" class="signup_button " name="signup" type="submit" value="1" >Submit</button>
+	  </div>
+
+	</form>
+      </div>
+    </section>
+
+  </div>
+</div>

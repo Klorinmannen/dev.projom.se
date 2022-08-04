@@ -1,0 +1,61 @@
+components:
+  schemas:
+    Pokemon:
+      type: object
+      properties:
+        pokemon_id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        shiny:
+          type: integer
+        shadow:
+          type: integer
+      example:
+        pokemon_id: 327
+        name: Spinda
+        description: '#327'
+        shiny: -1
+        shadow: 0
+    PokemonCheckSum:
+      type: object
+      properties:
+        checksum: string
+      example:
+        checksum: OpsS/12dsaLPSuYQ901BfL
+
+pokemon_list:
+  get:
+    operationId: pokemon_list
+    summary: Returns a list of all pokemons
+    tags:
+      - Pokemons
+    security:
+      - bearerAuth: []
+    responses:
+      '200':
+        description: A json object with a list of pokemons
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Pokemon'
+
+pokemon_list_checksum:
+  get:
+    operationId: pokemon_list_checksum
+    summary: Returns pokemon list checksum used to verify an update
+    tags:
+      - Pokemons
+    security:
+      - bearerAuth: []
+    responses:
+      '200':
+        description: A json object containing a checksum
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PokemonCheckSum'

@@ -1,0 +1,110 @@
+components:
+  schemas:
+    Recipe:
+      type: object
+      properties:
+        recipe_id: integer
+      example:
+        recipe_id: 1
+
+recipes:
+  get:
+    parameters:
+      - in: query
+        name: quality
+        schema:
+          type: string
+          enum:
+            - normal
+            - magic
+            - rare
+            - legendary
+            - set
+        required: false
+        description: Filter returned list by quality
+      - in: query
+        name: group
+        schema:
+          type: string
+          enum:
+            - head
+            - torso
+            - shoulders
+            - waist
+            - legs
+            - hands
+            - wrists
+            - feets
+            - one_handed_weapons
+            - two_handed_weapons
+            - ranged_weapons
+            - weapons
+            - rings
+            - amulets
+            - talisman
+            - jewelry
+        required: false
+        description: Filter returned list by group
+      - in: query
+        name: sort
+        schema:
+          type: string
+          enum:
+            - name
+            - required_level
+            - quality
+            - group
+        required: false
+        description: Sort returned list
+    operationId: list
+    summary: Returns a list of available recipes
+    tags:
+      - Recipes
+    security:
+      - bearerAuth: []
+    responses:
+      '200':
+        description: A json object containing the recipe
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+
+random_recipes:
+  get:
+    operationId: random
+    summary: Returns a random recipe
+    tags:
+      - Recipes
+    security:
+      - bearerAuth: []
+    responses:
+      '200':
+        description: A json object containing the recipe
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+
+recipes_by_id:
+  get:
+    parameters:
+      - in: path
+        name: recipe_id
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the recipe
+    operationId: by_id
+    summary: Returns requested recipe
+    tags:
+      - Recipes
+    security:
+      - bearerAuth: []
+    responses:
+      '200':
+        description: A json object containing the recipe
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recipe'

@@ -1,0 +1,31 @@
+components:
+  schemas:
+    Dice:
+      type: object
+      properties:
+        value: integer
+      example:
+        value: 5
+
+roll:
+  get:
+    parameters:
+      - in: query
+        name: faces
+        required: false
+        schema:
+          type: integer
+        description: The number of faces for the dice to be rolled
+    operationId: roll
+    summary: Rolling a dice
+    tags:
+      - Common
+    security:
+      - bearerAuth: []
+    responses:
+      '200':
+        description: A json object containing the value of a dice roll
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dice'

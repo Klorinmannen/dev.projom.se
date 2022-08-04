@@ -1,0 +1,16 @@
+#*.*#
+#.*
+.*#
+*.php~
+*.js~
+*.sql~
+*.css~
+*.html~
+*.json~
+*.yml~
+*.*~
+.gitignore~
+git_stuff
+database-backup.sql
+config/
+setup/

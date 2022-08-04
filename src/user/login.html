@@ -1,0 +1,49 @@
+<div class="full_screen_div">
+  <div class="grid_center">
+    <header>
+      <div>
+	<h2 class="header no_margin">Projom - Pokémon Go</h2>
+      </div>
+    </header>
+    <section>
+      <div class="login_box border_radius">
+	<form method="post" class="no_margin">
+	  <input type="hidden" name="page_id" value="1"/>
+	  <div class="box_padding_top">
+	    <div>
+	      <label class="label" for="email-input">Email</label>
+	    </div>
+	    <div class="label_padding">
+	      <input class="input" style="" name="email" type="email" id="email-input" autocomplete="current-email" required/>
+	    </div>
+	  </div>
+
+	  <div class="box_padding_top">
+	    <div class="grid_buttons">
+	      <div>
+		<label class="label" for="password-input">Password</label>
+	      </div>
+	      <div class="text_right">
+		<input type="button" onclick="set_password(this)" class="material_icons icon_input no_border" id="password-show" value="visibility_off" />
+	      </div>
+	    </div>
+	    <div class="label_padding">
+	      <input class="input" name="password" type="password" id="password-input" autocomplete="current-password" required/>
+	    </div>
+	  </div>
+
+	  <div class="box_padding_top grid_buttons">
+	    <div>
+	      <a class="link" href="/register">Sign up</a>
+	    </div>
+
+	    <div class="text_right">
+	      <button class="button no_border border_radius" name="login" type="submit" value="1">Sign in</button>
+	    </div>
+	  </div>
+
+	</form>
+      </div>
+    </section>
+  </div>
+</div>
