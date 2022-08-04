@@ -1066,3 +1066,8 @@ Stack trace:
 #2 /var/www/dev/html/index.php(7): http\router::map()
 #3 {main}
   thrown in /var/www/dev/src/api/router.php on line 29
+[04-Aug-2022 16:00:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class '\dice\page\controller' not found in /var/www/dev/src/http/router.php:15
+Stack trace:
+#0 /var/www/dev/html/index.php(7): http\router::map()
+#1 {main}
+  thrown in /var/www/dev/src/http/router.php on line 15
