@@ -34,9 +34,9 @@ paths:
   /pokemons/checksum:
     $ref: "pokemon.yml#/pokemon_list_checksum"
 
-  common/split/fuel:
+  /common/split/fuel:
     $ref: "common/split/fuel.yml#/cost"
-  common/dice:
+  /common/dice:
     $ref: "common/dice.yml#/roll"
 
   /items:
