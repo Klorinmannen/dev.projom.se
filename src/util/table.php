@@ -74,26 +74,9 @@ class table {
         return $this;
     }
 
-    // First argument is the table "in use / from"
-    // Second argument is the table "to join on"
-    // Assuming structure for both arguments: [ 'RealTableFieldName', 'RealTableFieldName' ]
-    // Assumption: if join() is called with string so must on()
-    public function on($table_field_names, $other_field_values = null) {
-        $this_fields = $table_field_names;
-        if (!is_array($table_field_names))
-            $this_fields = [$table_field_names];
-
-        $other_values = $other_field_values;
-        if (!is_array($other_field_values))
-            $other_values = [$other_field_values];
-        
-        self::set_join($this_fields, $other_values);
-        return $this;
-    }
-
     // Accepts a well formated join statement
     // Accepts a list of well formated join statements
-    public function join_on($join_statement) {
+    public function join_on($join_statements) {
         if (is_array($join_statements))     
             $this->_join = implode(' ', $join_statements);
         else
@@ -271,33 +254,6 @@ class table {
         $this->_where = $where;
     }
     
-    private function set_join($table_field_names, $other_field_values)
-    {
-        $sql_parts = [];
-        $join_type = '';
-        $field_name = '';
-        $other_field = '';
-        foreach ($this->_join_tables as $other_table_name) {                
-                
-            if ($type = advance_array($this->_join_types))
-                $join_type = $type;
-
-            if ($field = advance_array($table_field_names))
-                $field_name = $field;
-                
-            if ($other_field_values && $other = advance_array($other_field_values))
-                $other_field = $other;
-            else
-                $other_field = $field_name;
-
-            $sql_parts[] = sprintf('%s %s ON %s.%s = %s.%s',
-                                   $join_type, $other_table_name,
-                                   $this->_table, $field_name,
-                                   $other_table_name, $other_field);
-        }
-        $this->_join = implode(' ', $sql_parts);
-    }
-
     private function set_limit($limit)
     {
         if ($limit < 0)
