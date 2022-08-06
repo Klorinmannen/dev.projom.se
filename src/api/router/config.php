@@ -1,11 +1,15 @@
 <?php
-declare(strict_types=1);
-namespace api\route;
 
-class config {
+declare(strict_types=1);
+
+namespace api\router;
+
+class config
+{
     public const CONFIG_DIR = 'html/conf/';
 
-    public static function get_routes(): array {
+    public static function get_routes(): array
+    {
         //if (array_key_exists('api_routes', $_SESSION))
         //  return $_SESSION['api_routes'];
 
@@ -31,25 +35,26 @@ class config {
         return $routes;
     }
 
-    public static function main_config(): array {
+    public static function main_config(): array
+    {
         $main_config_path = static::main_config_path();
-        $main_config_filepath = $main_config_path.'main.yml';
+        $main_config_filepath = $main_config_path . 'main.yml';
         if (!is_readable($main_config_filepath))
             throw new \Exception('Missing main api configuration file.', 500);
         return \util\yaml::parse($main_config_filepath);
     }
 
-    public static function main_config_path(): string {
+    public static function main_config_path(): string
+    {
         return \system::config()->dir(static::CONFIG_DIR);
     }
-    
-    public static function referenced_config(string $referenced): array {
+
+    public static function referenced_config(string $referenced): array
+    {
         $main_config_path = static::main_config_path();
-        $referenced_config_filepath = $main_config_path.$referenced;
+        $referenced_config_filepath = $main_config_path . $referenced;
         if (!is_readable($referenced_config_filepath))
             throw new \Exception('Missing referenced api configuration file.', 500);
         return \util\yaml::parse($referenced_config_filepath);
     }
-    
-    
 }
