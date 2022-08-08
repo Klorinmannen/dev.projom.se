@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace http;
 
 class request {
-    public const API_REQ = 1;
     public const PAGE_REQ = 2;
     public const API_PATTERN = '/^api/';
 
@@ -59,11 +58,7 @@ class request {
     }
 
     private function set_type(): void {
-        $path = $this->get_url_path();
-        if (\util\strings::match_pattern($path, self::API_PATTERN))
-            $this->_type = self::API_REQ;
-        else
-            $this->_type = self::PAGE_REQ;
+        $this->_type = self::PAGE_REQ;
     }
 
     private function set_url_path_parts() {

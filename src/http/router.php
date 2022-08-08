@@ -4,14 +4,8 @@ namespace http;
 
 class router {
 
-    public static function map(): void {
-        $request = \http\request::get();       
-
-        $url_path = $request->get_url_path();
+    public static function map(): void { 
         $controller = '\dice\page\controller';
-        if ($request->get_type() == request::API_REQ)
-            $controller = '\api\controller';
-
         $controller::route();                    
     }      
 }

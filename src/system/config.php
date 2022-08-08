@@ -7,7 +7,6 @@ namespace system;
 class config
 {
     private $_db = [];
-    private $_api = [];
     private $_system_dir = '';
     private $_src_dir = '';
     private $_conf_dir = '';
@@ -18,17 +17,11 @@ class config
         $this->_src_dir = $this->_system_dir . 'src/';
         $this->_conf_dir = $this->_system_dir . 'config/';
         $this->_db = self::load_db_config();
-        $this->_api = self::load_api_config();
     }
 
     private function load_db_config(): array
     {
         return \util\json::parse($this->_conf_dir . 'db.json');
-    }
-
-    private function load_api_config(): array
-    {
-        return \util\json::parse($this->_conf_dir . 'api.json');
     }
 
     public function db(): array
