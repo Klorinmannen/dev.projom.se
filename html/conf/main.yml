@@ -4,10 +4,8 @@ info:
   version: 0.0.2
 
 servers:
- - url: http://dev.projom.se/api/v1
-   description: Development server V1
- - url: http://dev.projom.se/api/v2
-   description: Development server V2
+ - url: http://dev.projom.se/api
+   description: Development server
 
 components:
   securitySchemes:
@@ -27,7 +25,6 @@ tags:
     description: "Query for items"
   - name: "Recipes"
     description: "Query for item recipes"
-
 paths:
   /users/login:
     $ref: "user.yml#/user"
